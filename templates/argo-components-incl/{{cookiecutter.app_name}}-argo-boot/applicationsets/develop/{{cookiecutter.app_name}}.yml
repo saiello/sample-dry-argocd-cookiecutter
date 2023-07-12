@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{cookiecutter.app_name}}
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      repoURL: {{cookiecutter.repo_url}}
+      revision: HEAD
+      directories:
+      - path: overlays/develop/*
+  template:
+    metadata:
+      name: {{ "'{{" }} path.basename {{ "}}'" }}
+    spec:
+      project: {{cookiecutter.app_name}}
+      source:
+        repoURL: {{cookiecutter.repo_url}}
+        targetRevision: HEAD
+        path: {{ "'{{" }} path {{ "}}'" }}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: {{ "'{{" }} path[1] {{ "}}'" }}
+      syncPolicy:
+        automated:
+            prune: true

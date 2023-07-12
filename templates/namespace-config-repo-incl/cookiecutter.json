@@ -1,0 +1,9 @@
+{
+    "app_name": "vote-app",
+    "memory_limit_min": "500Mi",
+    "memory_limit_max": "1Gi",
+    "quotas_hard_req_cpu": "5",
+    "quotas_hard_req_mem": "5Gi",
+    "quotas_hard_limit_cpu": "5",
+    "quotas_hard_limit_mem": "5Gi"
+}

@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: all-
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/saiello/sample-dry-argocd-cookiecutter.git
+      revision: HEAD
+      directories:
+      - path: namespace-config/namespaces/staging/
+  template:
+    metadata:
+      name: '{{ path.basename }}'
+    spec:
+      project: '{{ path[3] }}'
+      source:
+        repoURL: https://github.com/saiello/sample-dry-argocd-cookiecutter.git
+        targetRevision: HEAD
+        path: '{{ path }}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ path[3] }}'
+      syncPolicy:
+        automated:
+            prune: true

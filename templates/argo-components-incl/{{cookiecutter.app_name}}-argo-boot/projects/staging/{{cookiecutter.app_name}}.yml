@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{cookiecutter.app_name}}
+  namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: My project description
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: '{{cookiecutter.app_name}}'
+    server: https://kubernetes.default.svc

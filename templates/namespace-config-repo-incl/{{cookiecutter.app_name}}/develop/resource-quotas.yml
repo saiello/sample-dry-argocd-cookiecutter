@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: mem-cpu
+spec:
+  hard:
+    requests.cpu: "{{cookiecutter.quotas_hard_req_cpu}}"
+    requests.memory: {{cookiecutter.quotas_hard_req_mem}}
+    limits.cpu: "{{cookiecutter.quotas_hard_limit_cpu}}"
+    limits.memory: {{cookiecutter.quotas_hard_limit_mem}}
