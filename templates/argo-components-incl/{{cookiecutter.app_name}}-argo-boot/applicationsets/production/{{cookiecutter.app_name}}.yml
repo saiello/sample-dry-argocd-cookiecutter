@@ -9,7 +9,7 @@ spec:
       repoURL: {{cookiecutter.repo_url}}
       revision: HEAD
       directories:
-      - path: overlays/production/*
+      - path: {{cookiecutter.app_name}}/overlays/production/*
   template:
     metadata:
       name: {{ "'{{" }} path.basename {{ "}}'" }}

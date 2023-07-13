@@ -9,7 +9,7 @@ spec:
       repoURL: {{cookiecutter.repo_url}}
       revision: HEAD
       directories:
-      - path: overlays/staging/*
+      - path: {{cookiecutter.app_name}}/overlays/staging/*
   template:
     metadata:
       name: {{ "'{{" }} path.basename {{ "}}'" }}
