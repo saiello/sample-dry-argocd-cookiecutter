@@ -8,8 +8,8 @@ spec:
       cpu: {{cookiecutter.default_limit_cpu}}
       memory: {{cookiecutter.default_limit_mem}}
     defaultRequest:
-      cpu: {{default_req_cpu}}
-      memory: {{default_req_mem}}
+      cpu: {{cookiecutter.default_req_cpu}}
+      memory: {{cookiecutter.default_req_mem}}
     max:
       memory: {{cookiecutter.memory_limit_max}}
     min:
