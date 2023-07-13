@@ -10,9 +10,9 @@ commonLabels:
   app.kubernetes.io/name: microservice-a
 
 images:
-- name: quarkus-app
-  newName: {{cookiecutter.image_repo}}/microservice-a
-  newTag: "1.0.0"
+- name: image-name
+  newName: {{cookiecutter.image_repo}}/vote-api
+  newTag: "latest"
 
 configMapGenerator:
 - literals:

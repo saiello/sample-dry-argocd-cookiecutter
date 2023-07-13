@@ -11,7 +11,7 @@ commonLabels:
   foo: {{ cookiecutter.app_name }}
 
 images:
-- name: quarkus-app
+- name: image-name
   newName: {{cookiecutter.image_repo}}/microservice-a
   newTag: "1.1.0"
 
