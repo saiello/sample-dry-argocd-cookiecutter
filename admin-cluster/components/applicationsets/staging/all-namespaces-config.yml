@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: all-
+  name: all-staging-namespaces
   namespace: openshift-gitops
 spec:
   generators:
@@ -9,10 +9,10 @@ spec:
       repoURL: https://github.com/saiello/sample-dry-argocd-cookiecutter.git
       revision: HEAD
       directories:
-      - path: namespace-config/namespaces/staging/
+      - path: namespace-config/namespaces/*/staging
   template:
     metadata:
-      name: '{{ path.basename }}'
+      name: '{{ path[2] }}-infra'
     spec:
       project: '{{ path[3] }}'
       source:
@@ -21,7 +21,13 @@ spec:
         path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{ path[3] }}'
+        namespace: '{{ path[2] }}'
       syncPolicy:
+        managedNamespaceMetadata:
+          labels:
+            argocd.argoproj.io/managed-by: openshift-gitops
+        syncOptions:
+          - CreateNamespace=true
         automated:
-            prune: true
+          prune: true
+          selfHeal: true
