@@ -9,10 +9,10 @@ spec:
       repoURL: https://github.com/saiello/sample-dry-argocd-cookiecutter.git
       revision: HEAD
       directories:
-      - path: namespace-config/namespaces/production/
+      - path: namespace-config/namespaces/*/production/
   template:
     metadata:
-      name: '{{ path.basename }}'
+      name: '{{ path[2] }}'
     spec:
       project: '{{ path[3] }}'
       source:
@@ -21,7 +21,10 @@ spec:
         path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{ path[3] }}'
+        namespace: '{{ path[2] }}'
       syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
         automated:
-            prune: true
+          prune: true
+          selfHeal: true
