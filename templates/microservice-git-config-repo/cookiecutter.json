@@ -1,4 +1,4 @@
 {
-    "app_name": "my-brand-new-app",
-    "image_repo": "acme.com/repository"
+    "app_name": "vote-app",
+    "image_repo": "quay.io/bluesman"
 }
