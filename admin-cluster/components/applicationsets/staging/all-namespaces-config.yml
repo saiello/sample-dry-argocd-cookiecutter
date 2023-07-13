@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/saiello/sample-dry-argocd-cookiecutter.git
-      revision: HEAD
+      revision: develop
       directories:
       - path: namespace-config/namespaces/*/staging
   template:
@@ -17,7 +17,7 @@ spec:
       project: '{{ path[3] }}'
       source:
         repoURL: https://github.com/saiello/sample-dry-argocd-cookiecutter.git
-        targetRevision: HEAD
+        targetrevision: develop
         path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
