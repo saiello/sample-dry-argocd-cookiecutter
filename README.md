@@ -12,6 +12,12 @@ For sake of simplicity all the cose is here but following folders should be cons
 
 # Quickstart
 
+
+```
+# Create required ClusterRole and RoleBinding to let ArgoCD manage ResourceQuotas and LimitRanges
+oc apply -f admin-cluster/bootstrap/
+```
+
 ```
 cookiecutter templates/namespace-config-repo-incl -o namespace-config/namespaces/ --no-input app_name=vote-app
 ```
