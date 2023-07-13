@@ -1,4 +1,4 @@
 {
-    "app_name": "vote-app",
-    "image_repo": "quay.io/bluesman"
+    "app_name": "greet-app",
+    "image_repo": "docker.io/saiello"
 }

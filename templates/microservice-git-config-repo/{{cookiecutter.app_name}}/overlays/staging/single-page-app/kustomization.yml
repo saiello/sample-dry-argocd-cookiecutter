@@ -11,10 +11,10 @@ commonLabels:
 
 images:
 - name: image-name
-  newName: {{cookiecutter.image_repo}}/vote-ui
+  newName: {{cookiecutter.image_repo}}/react-greeting-app
   newTag: "latest"
 
 configMapGenerator:
 - literals:
-  - QUARKUS_FOOBAR=sample
+  - GREETING_SERVICE_URL=http://microservice-a-quarkus-app-svc:8080
   name: quarkus-app-envs

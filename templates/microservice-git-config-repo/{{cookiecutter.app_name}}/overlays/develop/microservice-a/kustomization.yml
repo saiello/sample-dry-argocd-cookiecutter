@@ -12,8 +12,8 @@ commonLabels:
 
 images:
 - name: image-name
-  newName: {{cookiecutter.image_repo}}/microservice-a
-  newTag: "1.1.0"
+  newName: {{cookiecutter.image_repo}}/quarkus-greeting-api
+  newTag: "latest"
 
 configMapGenerator:
 - envs:

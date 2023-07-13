@@ -1,5 +1,5 @@
 {
-    "app_name": "vote-app",
+    "app_name": "greet-app",
     "default_req_cpu": "200m",
     "default_req_mem": "256Mi",
     "default_limit_cpu": "1",

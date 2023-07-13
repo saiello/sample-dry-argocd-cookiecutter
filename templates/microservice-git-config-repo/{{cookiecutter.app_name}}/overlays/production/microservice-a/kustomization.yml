@@ -11,10 +11,10 @@ commonLabels:
 
 images:
 - name: image-name
-  newName: {{cookiecutter.image_repo}}/microservice-a
-  newTag: "1.0.0"
+  newName: {{cookiecutter.image_repo}}/quarkus-greeting-api
+  newTag: "latest"
 
 configMapGenerator:
 - literals:
-  - QUARKUS_FOOBAR=sample
+  - GREETING_TEXT=Ciao Mondo
   name: quarkus-app-envs

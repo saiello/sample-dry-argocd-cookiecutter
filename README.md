@@ -19,20 +19,20 @@ oc apply -f admin-cluster/bootstrap/
 ```
 
 ```
-cookiecutter templates/namespace-config-repo-incl -o namespace-config/namespaces/ --no-input app_name=vote-app
+cookiecutter templates/namespace-config-repo-incl -o namespace-config/namespaces/ --no-input app_name=greet-app
 ```
 
 ```
-cookiecutter templates/microservice-git-config-repo -o . --no-input app_name=vote-app
+cookiecutter templates/microservice-git-config-repo -o . --no-input app_name=greet-app
 ```
 
 ```
-cookiecutter templates/argo-components-incl -o . --no-input app_name=vote-app
+cookiecutter templates/argo-components-incl -o . --no-input app_name=greet-app
 ```
 
 ```
-cp -r vote-app-argo-boot/projects/*  admin-cluster/components/projects
-cp -r vote-app-argo-boot/applicationsets/* admin-cluster/components/applicationsets
+cp -r greet-app-argo-boot/projects/*  admin-cluster/components/projects
+cp -r greet-app-argo-boot/applicationsets/* admin-cluster/components/applicationsets
 ```
 
 NOTE: would be nice to use cookiecutter [post generation hooks](https://cookiecutter.readthedocs.io/en/stable/advanced/hooks.html) to avoid manual copy 
