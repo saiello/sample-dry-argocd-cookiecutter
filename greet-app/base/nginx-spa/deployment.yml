@@ -1,0 +1,53 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nginx-spa-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nginx-spa
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: nginx-spa
+    spec:
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: nginx-spa
+          securityContext: {}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /index.html
+              port: http
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: 'image-name'
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/configs
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: nginx-spa-configs
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
