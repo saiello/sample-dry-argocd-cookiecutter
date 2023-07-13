@@ -24,6 +24,13 @@ cookiecutter templates/microservice-git-config-repo -o . --no-input app_name=vot
 cookiecutter templates/argo-components-incl -o . --no-input app_name=vote-app
 ```
 
+```
+cp -r vote-app-argo-boot/projects/*  admin-cluster/components/projects
+cp -r vote-app-argo-boot/applicationsets/* admin-cluster/components/applicationsets
+```
+
+NOTE: would be nice to use cookiecutter [post generation hooks](https://cookiecutter.readthedocs.io/en/stable/advanced/hooks.html) to avoid manual copy 
+
 
 
 
