@@ -10,9 +10,9 @@ commonLabels:
   app.kubernetes.io/name: single-page-app
 
 images:
-- name: quarkus-app
-  newName: {{cookiecutter.image_repo}}/single-page-app
-  newTag: "1.0.0"
+- name: image-name
+  newName: {{cookiecutter.image_repo}}/vote-ui
+  newTag: "latest"
 
 configMapGenerator:
 - literals:

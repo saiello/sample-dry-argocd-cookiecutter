@@ -32,7 +32,7 @@ spec:
               port: http
           imagePullPolicy: Always
           terminationMessagePolicy: File
-          image: 'nginx-spa'
+          image: 'image-name'
           volumeMounts:
             - name: config-volume
               mountPath: /usr/share/nginx/configs
