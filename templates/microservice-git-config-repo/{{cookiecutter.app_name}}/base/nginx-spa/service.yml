@@ -4,7 +4,7 @@ metadata:
   name: nginx-spa-svc
 spec:
   ports:
-  - port: 8080
+  - port: 3000
     protocol: TCP
     targetPort: http
   selector:

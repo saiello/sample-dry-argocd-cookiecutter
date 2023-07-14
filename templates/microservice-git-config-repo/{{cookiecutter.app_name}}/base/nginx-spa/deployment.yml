@@ -17,10 +17,13 @@ spec:
         - resources: {}
           terminationMessagePath: /dev/termination-log
           name: nginx-spa
+          envFrom:
+          - configMapRef:
+              name: quarkus-app-envs
           securityContext: {}
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 3000
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -33,17 +36,10 @@ spec:
           imagePullPolicy: Always
           terminationMessagePolicy: File
           image: 'image-name'
-          volumeMounts:
-            - name: config-volume
-              mountPath: /usr/share/nginx/configs
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
       securityContext: {}
-      volumes:
-        - name: config-volume
-          configMap:
-            name: nginx-spa-configs
   strategy:
     type: RollingUpdate
     rollingUpdate:

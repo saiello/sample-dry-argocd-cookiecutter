@@ -6,7 +6,7 @@ metadata:
   name: nginx-spa-route
 spec:
   port:
-    targetPort: 8080
+    targetPort: 3000
   tls:
     termination: edge
   to:
