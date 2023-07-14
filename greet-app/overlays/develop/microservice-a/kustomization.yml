@@ -12,8 +12,8 @@ commonLabels:
 
 images:
 - name: image-name
-  newName: docker.io/saiello/quarkus-greeting-api
-  newTag: "latest"
+  newName: docker.io/saiello/quarkus-b
+  newTag: "2.1.0"
 
 configMapGenerator:
 - envs:
