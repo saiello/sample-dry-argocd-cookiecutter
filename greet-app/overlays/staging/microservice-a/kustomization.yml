@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../../base/quarkus-app
+
+namePrefix: microservice-a-
+commonLabels:
+  app.kubernetes.io/environment: dev
+  app.kubernetes.io/name: microservice-a
+
+images:
+- name: image-name
+  newName: docker.io/saiello/quarkus-greeting-api
+  newTag: "latest"
+
+configMapGenerator:
+- literals:
+  - GREETING_TEXT=Ciao Mondo
+  name: quarkus-app-envs

@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: greet-app
+  namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: My project description
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: 'greet-app'
+    server: https://kubernetes.default.svc
